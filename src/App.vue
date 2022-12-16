@@ -23,17 +23,30 @@ import FilmList from './components/FilmList.vue';
           .catch(err => {
             console.log('errori', err);
           })
+      },
+      getSeries(){
+        let mySeriesUrl = store.apiSeriesURL;
+        mySeriesUrl += `&${store.apiQuery}=${store.searchFilm}`
+        axios
+          .get(mySeriesUrl)
+          .then(result => {
+            store.cardList = result.data.results;
+          })
+          .catch(error => {
+            console.log('errori', error);
+          })
       }
     },
     mounted(){
       this.getFilms();
+      this.getSeries();
     }
   }
 </script>
 
 <template>
   <h1>{{store.titolo}}</h1>
-  <FilmList @search="getFilms()"/>
+  <FilmList @search="getFilms()" @searchSeries="getSeries()"/>
 </template>
 
 <style lang="scss">
