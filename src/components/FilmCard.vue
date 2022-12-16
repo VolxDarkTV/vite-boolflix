@@ -1,12 +1,12 @@
 <script>
     export default{
-        props:['film',],
+        props:['item',],
     }
 </script>
 
 <template>
     <div class="card">
-        <span>TitoloFilm</span>
+        <span>{{item.original_title}}</span>
     </div>
 </template>
 
