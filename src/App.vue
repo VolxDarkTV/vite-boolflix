@@ -1,8 +1,11 @@
 <script>
 import {store} from './store';
 import axios from 'axios';
-
+import FilmList from './components/FilmList.vue';
   export default{
+    components:{
+      FilmList,
+    },
     data(){
       return{
         store,
@@ -12,7 +15,7 @@ import axios from 'axios';
 </script>
 
 <template>
-  <h1>Hello World</h1>
+  <FilmList/>
 </template>
 
 <style lang="scss">
