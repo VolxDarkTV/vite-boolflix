@@ -1,10 +1,14 @@
 <script>
+import StarRating from 'vue-star-rating'
 import {store} from '../store';
     export default{
         data(){
             return{
                 store,
             }
+        },
+        components:{
+            StarRating,
         },
         props:['item',],
     }
@@ -27,8 +31,9 @@ import {store} from '../store';
             <!-- Unknown -->
             <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr'">
         </div>
-        <div>
-            <span>{{(((item.vote_average.toFixed()) / 10) * 5).toFixed()}}</span>
+        <div class="my_stars">
+
+            <StarRating :star-size="20" :rating="(((item.vote_average.toFixed()) / 10) * 5).toFixed()"></StarRating>
         </div>
     </div>
 </template>
@@ -41,4 +46,5 @@ import {store} from '../store';
     .my_card {
         width: calc(100% / 6 - 1.5rem);
     }
+    
 </style>
