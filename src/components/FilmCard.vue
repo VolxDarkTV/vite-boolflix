@@ -11,7 +11,7 @@ import {store} from '../store';
 </script>
 
 <template>
-    <div class="card d-flex flex-column align-items-center">
+    <div class="my_card card d-flex flex-column align-items-center">
         <img :src="store.imgURL+item.poster_path" :alt="item.original_title">
         <span>{{item.title}}</span>
         <span>{{item.original_title}}</span>
@@ -28,7 +28,7 @@ import {store} from '../store';
             <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr'">
         </div>
         <div>
-            <span>{{item.vote_average}}</span>
+            <span>{{(((item.vote_average.toFixed()) / 10) * 5).toFixed()}}</span>
         </div>
     </div>
 </template>
@@ -36,6 +36,9 @@ import {store} from '../store';
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
     .my_container{
-        width: 100px;
+        width: 50px;
+    }
+    .my_card {
+        width: calc(100% / 6 - 1.5rem);
     }
 </style>
