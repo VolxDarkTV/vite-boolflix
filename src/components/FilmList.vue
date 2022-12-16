@@ -15,29 +15,33 @@ export default{
 </script>
 
 <template>
-    <div>
-        <!-- Search Bar -->
-        <div class="d-flex justify-content-center gap-2 container bg-secondary mb-3 p-2 rounded">
-                <input type="text" placeholder="Search Film" v-model="store.searchFilm">
-                <button class="btn btn-warning" @click.prevent="$emit('search')">
-                    search
-                </button>
-            </div>
-    </div>
+    <!-- Add this section to remove the console vue Warning -->
+    <section>
 
-    <section v-if="store.searchFilm === ''">
         <div>
-            <h1>No Results</h1>
+            <!-- Search Bar -->
+            <div class="d-flex justify-content-center gap-2 container bg-secondary mb-3 p-2 rounded">
+                    <input type="text" placeholder="Search Film" v-model="store.searchFilm">
+                    <button class="btn btn-warning" @click.prevent="$emit('search')">
+                        search
+                    </button>
+                </div>
         </div>
-    </section>
-
-    <section class="container" v-else>
-        <div class="row">
-            <div class="d-flex flex-wrap justify-content-center gap-3 col">
-                <!-- Card Component -->
-                <FilmCard v-for="film in store.cardList" :key="film.id" :item="film"/>
+    
+        <section v-if="store.searchFilm === ''">
+            <div>
+                <h1>No Results</h1>
             </div>
-        </div>
+        </section>
+    
+        <section class="container" v-else>
+            <div class="row">
+                <div class="d-flex flex-wrap justify-content-center gap-3 col">
+                    <!-- Card Component -->
+                    <FilmCard v-for="film in store.cardList" :key="film.id" :item="film"/>
+                </div>
+            </div>
+        </section>
     </section>
     
 </template>
