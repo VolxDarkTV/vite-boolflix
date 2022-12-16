@@ -14,7 +14,7 @@ import FilmList from './components/FilmList.vue';
     methods:{
       getFilms(){
         let myUrl = store.apiURL;
-        myUrl += `&query=black+adam`
+        myUrl += `&${store.apiQuery}=${store.searchFilm}`
         axios
           .get(myUrl)
           .then(res => {
@@ -32,7 +32,7 @@ import FilmList from './components/FilmList.vue';
 </script>
 
 <template>
-  <FilmList/>
+  <FilmList @search="getFilms()"/>
 </template>
 
 <style lang="scss">
