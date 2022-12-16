@@ -11,6 +11,23 @@ import FilmList from './components/FilmList.vue';
         store,
       }
     },
+    methods:{
+      getFilms(){
+        let myUrl = store.apiURL;
+        myUrl += `&query=black+adam`
+        axios
+          .get(myUrl)
+          .then(res => {
+              store.cardList = res.data.results;
+          })
+          .catch(err => {
+            console.log('errori', err);
+          })
+      }
+    },
+    mounted(){
+      this.getFilms();
+    }
   }
 </script>
 

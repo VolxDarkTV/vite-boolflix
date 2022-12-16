@@ -1,9 +1,10 @@
 <script>
 import { def } from '@vue/shared';
 import {store} from '../store';
+import FilmCard from './FilmCard.vue';
 export default{
     components:{
-
+        FilmCard,
     },
     data(){
         return{
@@ -18,7 +19,7 @@ export default{
         <div class="row">
             <div class="d-flex flex-wrap justify-content-center gap-3 col">
                 <!-- Card Component -->
-
+                <FilmCard v-for="film in store.cardList" :item="film"/>
             </div>
         </div>
     </section>
