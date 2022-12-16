@@ -15,7 +15,23 @@ export default{
 </script>
 
 <template>
-    <section class="container">
+    <div>
+        <!-- Search Bar -->
+        <div class="d-flex justify-content-center gap-2 container bg-secondary mb-3 p-2 rounded">
+                <input type="text" placeholder="Search Film" v-model="store.searchFilm">
+                <button class="btn btn-warning" @click.prevent="$emit('search')">
+                    search
+                </button>
+            </div>
+    </div>
+
+    <section v-if="store.searchFilm === ''">
+        <div>
+            <h1>No Results</h1>
+        </div>
+    </section>
+
+    <section class="container" v-else>
         <div class="row">
             <div class="d-flex flex-wrap justify-content-center gap-3 col">
                 <!-- Card Component -->
@@ -23,6 +39,7 @@ export default{
             </div>
         </div>
     </section>
+    
 </template>
 
 <style lang="scss" scoped>
