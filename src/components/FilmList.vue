@@ -27,13 +27,14 @@ export default{
                     </button>
                 </div>
         </div>
-    
+        
+        <!-- Zero container -->
         <section v-if="store.searchFilm === ''">
             <div>
                 <h1>No Results</h1>
             </div>
         </section>
-    
+        <!-- Card container -->
         <section class="container" v-else>
             <div class="row">
                 <div class="d-flex flex-wrap justify-content-center gap-3 col">

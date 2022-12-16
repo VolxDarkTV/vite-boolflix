@@ -15,6 +15,7 @@ import {store} from '../store';
 </script>
 
 <template>
+    <!-- Card container -->
     <div class="my_card card d-flex flex-column align-items-center">
         <img class="card" :src="store.imgURL+item.poster_path" :alt="item.original_title">
         <span>{{item.title}}</span>
@@ -44,7 +45,7 @@ import {store} from '../store';
         width: 50px;
     }
     .my_card {
-        width: calc(100% / 6 - 1.5rem);
+        width: calc(100% / 4 - 1.5rem);
     }
     
 </style>
