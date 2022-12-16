@@ -16,7 +16,7 @@ import {store} from '../store';
 
 <template>
     <div class="my_card card d-flex flex-column align-items-center">
-        <img :src="store.imgURL+item.poster_path" :alt="item.original_title">
+        <img class="card" :src="store.imgURL+item.poster_path" :alt="item.original_title">
         <span>{{item.title}}</span>
         <span>{{item.original_title}}</span>
         <span>{{item.original_language}}</span>
