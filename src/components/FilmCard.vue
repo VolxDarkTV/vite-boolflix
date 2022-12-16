@@ -13,7 +13,12 @@ import {store} from '../store';
 <template>
     <div class="card">
         <img :src="store.imgURL+item.poster_path" alt="">
+        <span>{{item.title}}</span>
         <span>{{item.original_title}}</span>
+        <span>{{item.original_language}}</span>
+        <div>
+            <span>{{item.vote_average}}</span>
+        </div>
     </div>
 </template>
 
