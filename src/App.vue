@@ -32,6 +32,7 @@ import FilmList from './components/FilmList.vue';
 </script>
 
 <template>
+  <h1>{{store.titolo}}</h1>
   <FilmList @search="getFilms()"/>
 </template>
 
