@@ -33,8 +33,7 @@ import {store} from '../store';
             <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr'">
         </div>
         <div class="my_stars">
-
-            <StarRating :star-size="20" :rating="(((item.vote_average.toFixed()) / 10) * 5).toFixed()"></StarRating>
+            <StarRating :star-size="20" :rating="(((item.vote_average.toFixed()) / 10) * 5)"></StarRating>
         </div>
     </div>
 </template>
