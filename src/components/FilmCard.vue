@@ -21,11 +21,11 @@ import {store} from '../store';
             <!-- English -->
             <img src="../../public/img/Flag_of_the_United_Kingdom.svg.png" :alt="item.original_language" v-if="item.original_language === 'en'">
             <!-- Italian -->
-            <img src="../../public/img/Flag_of_Italy.svg.png" :alt="item.original_language" v-if="item.original_language === 'it'">
+            <img src="../../public/img/Flag_of_Italy.svg.png" :alt="item.original_language" v-else-if="item.original_language === 'it'">
             <!-- French -->
-            <img src="../../public/img/Flag_of_France.svg.png" :alt="item.original_language" v-if="item.original_language === 'fr'">
+            <img src="../../public/img/Flag_of_France.svg.png" :alt="item.original_language" v-else-if="item.original_language === 'fr'">
             <!-- Unknown -->
-            <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-if="item.original_language !== 'en' || 'it' || 'fr'">
+            <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr'">
         </div>
         <div>
             <span>{{item.vote_average}}</span>
