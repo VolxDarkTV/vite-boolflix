@@ -21,7 +21,7 @@ export default{
         <div>
             <!-- Search Bar -->
             <div class="d-flex justify-content-center gap-2 container bg-secondary mb-3 p-2 rounded">
-                    <input type="text" placeholder="Search Film" v-model="store.searchFilm">
+                    <input type="text" placeholder="Search Film" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')">
                     <button class="btn btn-warning" @click.prevent="$emit('search')">
                         search
                     </button>
