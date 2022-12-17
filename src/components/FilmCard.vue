@@ -18,9 +18,9 @@ import {store} from '../store';
 <template>
     <!-- Card container -->
     <div 
-    @mouseover="inactive='d-block'" 
+    @mouseover="inactive='d-flex'" 
     @mouseleave="inactive='d-none'" 
-    class="my_card position-relative card d-flex flex-column align-items-center justify-content-center bg-dark"
+    class="my_card position-relative card flex-column align-items-center justify-content-center bg-dark"
     >
         <img 
         v-if="inactive === 'd-none'" 
@@ -29,16 +29,25 @@ import {store} from '../store';
         :alt="item.original_title">
 
         <div 
-        v-else-if="inactive === 'd-block'" 
-        :class="inactive" class="d-flex flex-column align-items-center text-light">
+        v-else-if="inactive === 'd-flex'" 
+        :class="inactive" class="my_over_info flex-column align-items-center text-light gap-1">
             <!-- Serie/Film -->
-            <div class="m-2">
+            <div class="text-warning">
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
                 <span v-else-if="item.media_type === 'movie'">Film</span>
             </div>
-            <span>{{item.title || item.name}}</span>
-            <span>{{item.original_title || item.original_name}}</span>
-            <span>{{item.original_language}}</span>
+            <span>
+                <span class="fw-bold">Titolo:</span> 
+                {{item.title || item.name}}
+            </span>
+            <span>
+                <span class="fw-bold">Titolo originale:</span>
+                {{item.original_title || item.original_name}}
+            </span>
+
+            <!-- Name Of Language -->
+            <!-- <span>{{item.original_language}}</span> -->
+
             <!-- Flags -->
             <div class="my_container">
                 <!-- English -->
@@ -54,8 +63,11 @@ import {store} from '../store';
                 <!-- Poichè in alcuni casi nopn esiste il vote_average, ho impostato questa condizione per evitare errori a causa del mancato valore di vote_average -->
                 <StarRating :star-size="20" v-if="item.vote_average !== undefined" :rating="((item.vote_average.toFixed()) / 10) * 5"/>
                 <StarRating :star-size="20" v-else-if="item.vote_average === undefined"/>
-    
             </div>
+            <span>
+                <span class="fw-bold">Overview:</span>
+                {{item.overview}}
+            </span>
         </div>
 
     </div>
@@ -68,7 +80,12 @@ import {store} from '../store';
         width: 50px;
     }
     .my_card {
-        width: calc(100% / 4 - 1.5rem);
+        width: calc(100% / 5 - 1.5rem);
+        cursor: pointer;
+    }
+    .my_over_info{
+        overflow-y: auto;
+        max-height: 400px;
     }
     
 </style>
