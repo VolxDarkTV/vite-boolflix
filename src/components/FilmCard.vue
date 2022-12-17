@@ -18,8 +18,8 @@ import {store} from '../store';
     <!-- Card container -->
     <div class="my_card card d-flex flex-column align-items-center">
         <img class="card" :src="store.imgURL+item.poster_path" :alt="item.original_title">
-        <span>{{item.title}}</span>
-        <span>{{item.original_title}}</span>
+        <span>{{item.title || item.name}}</span>
+        <span>{{item.original_title || item.original_name}}</span>
         <span>{{item.original_language}}</span>
         <!-- Flags -->
         <div class="my_container">
@@ -33,8 +33,12 @@ import {store} from '../store';
             <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr'">
         </div>
         <div class="my_stars">
-            <StarRating :star-size="20" :rating="(((item.vote_average.toFixed()) / 10) * 5)"></StarRating>
+            <!-- Poichè in alcuni casi nopn esiste il vote_average, ho impostato questa condizione per evitare errori a causa del mancato valore di vote_average -->
+            <StarRating :star-size="20" v-if="item.vote_average !== undefined" :rating="((item.vote_average.toFixed()) / 10) * 5"/>
+            <StarRating :star-size="20" v-else-if="item.vote_average === undefined"/>
+
         </div>
+        <span>{{item.media_type}}</span>
     </div>
 </template>
 
