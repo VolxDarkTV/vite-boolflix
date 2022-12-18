@@ -33,7 +33,7 @@ export default{
                 </div>  
 
                 <div class="d-flex gap-2">
-                    <input type="text" placeholder="Search Film" v-model="store.searchFilm" v-on:keypress="$emit('search')" v-on:keyup.enter="$emit('search')">
+                    <input type="text" placeholder="Search Film" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')">
                     <button class="btn btn-warning" @click.prevent="$emit('search')">
                         search
                     </button>
