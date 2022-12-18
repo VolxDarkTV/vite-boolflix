@@ -1,5 +1,4 @@
 <script>
-import { def } from '@vue/shared';
 import {store} from '../store';
 import FilmCard from './FilmCard.vue';
 export default{
@@ -9,8 +8,9 @@ export default{
     data(){
         return{
             store,
+            inactive: 'd-none',
         }
-    }
+    },
 }
 </script>
 
@@ -20,7 +20,7 @@ export default{
         <!-- Search bar container -->
         <div>
             <!-- Search Bar -->
-            <div class="d-flex justify-content-between align-items-center gap-2 container bg-dark mb-3 p-2 rounded">
+            <div class="fixed-top d-flex justify-content-between align-items-center gap-5 container bg-dark mb-3 p-2 rounded">
 
                 <div class="d-flex align-items-center gap-2">
                     <div class="my_logo rounded">
@@ -32,11 +32,17 @@ export default{
                     <h1 class="title animate__animated animate__rotateInDownLeft">{{store.titolo}}</h1>
                 </div>  
 
-                <div class="d-flex gap-2">
-                    <input type="text" placeholder="Search Film" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')">
-                    <button class="btn btn-warning" @click.prevent="$emit('search')">
+                <div class="d-flex align-items-center gap-2">
+                    
+                    <input id="search" type="text" placeholder="Search Films Series and more then" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')" :class="inactive">
+                    
+                    <label for="search" @click="inactive= 'd-block'">
+                        <font-awesome-icon class="my_search_icon" icon="fa-solid fa-magnifying-glass" />
+                    </label>
+                        
+                    <!-- <button class="btn btn-warning" @click.prevent="$emit('search')">
                         search
-                    </button>
+                    </button> -->
                 </div>
 
             </div>
@@ -48,8 +54,9 @@ export default{
                 <h1>No Results</h1>
             </div>
         </section>
+
         <!-- Card container -->
-        <section class="container" v-else>
+        <section class="mt-5 container container-md" v-else>
             <div class="row">
                 <div class="d-flex flex-wrap justify-content-center gap-3 col">
                     <!-- Card Component -->
@@ -57,11 +64,15 @@ export default{
                 </div>
             </div>
         </section>
+
     </section>
     
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
-
+    .my_search_icon{
+        color: #fff;
+        cursor: pointer;
+    }
 </style>
