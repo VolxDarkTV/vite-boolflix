@@ -1,5 +1,6 @@
 <script>
-import StarRating from 'vue-star-rating'
+import FlagLanguage from './card_components/FlagLanguage.vue';
+import StarRating from 'vue-star-rating';
 import {store} from '../store';
     export default{
         data(){
@@ -10,6 +11,7 @@ import {store} from '../store';
         },
         components:{
             StarRating,
+            FlagLanguage,
         },
         props:['item',],
     }
@@ -50,16 +52,8 @@ import {store} from '../store';
             <!-- <span>{{item.original_language}}</span> -->
 
             <!-- Flags -->
-            <div class="my_container">
-                <!-- English -->
-                <img src="../../public/img/Flag_of_the_United_Kingdom.svg.png" :alt="item.original_language" v-if="item.original_language === 'en'">
-                <!-- Italian -->
-                <img src="../../public/img/Flag_of_Italy.svg.png" :alt="item.original_language" v-else-if="item.original_language === 'it'">
-                <!-- French -->
-                <img src="../../public/img/Flag_of_France.svg.png" :alt="item.original_language" v-else-if="item.original_language === 'fr'">
-                <!-- Unknown -->
-                <img src="../../public/img/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr'">
-            </div>
+           <FlagLanguage :item="item"/>
+            
             <div class="my_stars">
                 <!-- Poichè in alcuni casi nopn esiste il vote_average, ho impostato questa condizione per evitare errori a causa del mancato valore di vote_average -->
                 <StarRating :star-size="20" v-if="item.vote_average !== undefined" :rating="((item.vote_average.toFixed()) / 10) * 5"/>
