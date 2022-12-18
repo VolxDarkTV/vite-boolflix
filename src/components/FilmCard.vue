@@ -33,7 +33,7 @@ import {store} from '../store';
         <!-- INFO -->
         <div 
         v-else-if="inactive === 'd-flex'" 
-         class="my_over_info d-flex flex-column align-items-center text-light gap-1">
+         class="my_over_info d-flex flex-column align-items-center text-light gap-1 p-3">
             <!-- Serie/Film -->
             <div class="text-warning">
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
