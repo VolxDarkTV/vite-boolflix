@@ -17,15 +17,29 @@ export default{
 <template>
     <!-- Add this section to remove the console vue Warning -->
     <section>
-
+        <!-- Search bar container -->
         <div>
             <!-- Search Bar -->
-            <div class="d-flex justify-content-center gap-2 container bg-secondary mb-3 p-2 rounded">
-                    <input type="text" placeholder="Search Film" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')">
+            <div class="d-flex justify-content-between align-items-center gap-2 container bg-dark mb-3 p-2 rounded">
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="my_logo rounded">
+                        <a href="#">
+                          <img class="rounded" src="../../public/img/IMG_2239.jpg" alt="">
+                        </a>
+                    </div>
+    
+                    <h1 class="title animate__animated animate__rotateInDownLeft">{{store.titolo}}</h1>
+                </div>  
+
+                <div class="d-flex gap-2">
+                    <input type="text" placeholder="Search Film" v-model="store.searchFilm" v-on:keypress="$emit('search')" v-on:keyup.enter="$emit('search')">
                     <button class="btn btn-warning" @click.prevent="$emit('search')">
                         search
                     </button>
                 </div>
+
+            </div>
         </div>
         
         <!-- Zero container -->
