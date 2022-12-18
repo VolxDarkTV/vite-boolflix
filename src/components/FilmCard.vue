@@ -28,9 +28,10 @@ import {store} from '../store';
         :src="store.imgURL+item.poster_path" 
         :alt="item.original_title">
 
+        <!-- INFO -->
         <div 
         v-else-if="inactive === 'd-flex'" 
-        :class="inactive" class="my_over_info flex-column align-items-center text-light gap-1">
+         class="my_over_info d-flex flex-column align-items-center text-light gap-1">
             <!-- Serie/Film -->
             <div class="text-warning">
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
