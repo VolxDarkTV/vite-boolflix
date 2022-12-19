@@ -47,7 +47,7 @@ import {store} from '../store';
                 {{item.title || item.name}}
             </span>
             <!-- Original Title -->
-            <span v-if="item.title !== item.original_title || item.name !== item.original_name">
+            <span v-if="item.title !== item.original_title || item.name !== item.original_name & item.original_title !== undefined & item.original_name !== undefined">
                 <span class="fw-bold">Titolo originale:</span>
                 {{item.original_title || item.original_name}}
             </span>
@@ -64,7 +64,8 @@ import {store} from '../store';
                 <StarRating :star-size="20" v-else-if="item.vote_average === undefined"/>
             </div>
             
-            <span>
+            <!-- Overview -->
+            <span v-if="item.overview !== undefined">
                 <span class="fw-bold">Overview:</span>
                 {{item.overview}}
             </span>
