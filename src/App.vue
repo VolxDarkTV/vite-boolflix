@@ -2,6 +2,7 @@
 import {store} from './store';
 import axios from 'axios';
 import FilmList from './components/FilmList.vue';
+import 'animate.css';
   export default{
     components:{
       FilmList,
@@ -24,31 +25,35 @@ import FilmList from './components/FilmList.vue';
             console.log('errori', err);
           })
       },
-      getSeries(){
-        let mySeriesUrl = store.apiSeriesURL;
-        mySeriesUrl += `&${store.apiQuery}=${store.searchFilm}`
-        axios
-          .get(mySeriesUrl)
-          .then(result => {
-            store.cardList = result.data.results;
-          })
-          .catch(error => {
-            console.log('errori', error);
-          })
-      }
+      // getSeries(){
+      //   let mySeriesUrl = store.apiSeriesURL;
+      //   mySeriesUrl += `&${store.apiQuery}=${store.searchFilm}`
+      //   axios
+      //     .get(mySeriesUrl)
+      //     .then(result => {
+      //       store.cardList = result.data.results;
+      //     })
+      //     .catch(error => {
+      //       console.log('errori', error);
+      //     })
+      // }
     },
-    mounted(){
-      this.getFilms();
-      this.getSeries();
-    }
   }
 </script>
 
 <template>
-  <h1>{{store.titolo}}</h1>
-  <FilmList @search="getFilms(), getSeries()"/>
+  
+  <!-- Ho rimosso getSeries in quanto ho introdotto un nuovo link per cercare entrambe le cose (film & serie) -->
+  <FilmList @search="getFilms()"/>
 </template>
 
 <style lang="scss">
 @use './styles/general.scss' as *;
+  .title {
+    font-weight: bold;
+    color: #ffac07;
+  }
+  .my_logo{
+    width: 50px;
+  }
 </style>
