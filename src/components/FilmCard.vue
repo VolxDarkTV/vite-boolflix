@@ -44,11 +44,13 @@ import {store} from '../store';
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
                 <span v-else-if="item.media_type === 'movie'">Film</span>
             </div>
-            <span v-if="item.title !== item.original_title || item.name !== item.original_name">
+            <!-- Title -->
+            <span>
                 <span class="fw-bold">Titolo:</span> 
                 {{item.title || item.name}}
             </span>
-            <span>
+            <!-- Original Title -->
+            <span v-if="item.title !== item.original_title || item.name !== item.original_name">
                 <span class="fw-bold">Titolo originale:</span>
                 {{item.original_title || item.original_name}}
             </span>
@@ -81,6 +83,7 @@ import {store} from '../store';
     .my_card {
         width: calc(100% / 4 - 1.5rem);
         cursor: pointer;
+        min-height: 100px;
     }
     .my_over_info{
         overflow-y: auto;
