@@ -20,3 +20,10 @@
         <img src="../../../public/img/flags/Unknown_flag_-_European_version.png" :alt="item.original_language" v-else-if="item.original_language !== 'en' || 'it' || 'fr' || 'ja'">
     </div>
 </template>
+
+<style lang="scss" scoped>
+@use '../../styles/general.scss' as *;
+    .my_container{
+        width: 50px;
+    }
+</style>
