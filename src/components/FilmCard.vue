@@ -26,16 +26,18 @@ import {store} from '../store';
     >
         <!-- Cover Image -->
         <div v-if="inactive === 'd-none'">
-            <img 
+            <img v-if="item.poster_path !== undefined" 
             class="card" 
             :src="store.imgURL+item.poster_path" 
             :alt="item.original_title">
+            <!-- Cover NOT FOUND 404 -->
+            <img v-else-if="item.poster_path === undefined" src="../../public/img/IMG_2239.jpg" :alt="item.original_title">
         </div>
 
         <!-- INFO -->
         <div 
         v-else-if="inactive === 'd-flex'" 
-         class="my_over_info position-absolute d-flex flex-column align-items-center text-light gap-1 p-3">
+         class="my_over_info position-absolute d-flex flex-column align-items-center text-light gap-1 p-4">
 
             <!-- Serie/Film -->
             <div class="text-warning">
