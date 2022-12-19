@@ -22,7 +22,7 @@ import {store} from '../store';
     <div 
     @mouseover="inactive='d-flex'" 
     @mouseleave="inactive='d-none'" 
-    class="my_card position-relative card flex-column align-items-center justify-content-center bg-dark"
+    class="my_card card flex-column align-items-center justify-content-center bg-dark"
     >
         <img 
         v-if="inactive === 'd-none'" 
@@ -71,9 +71,6 @@ import {store} from '../store';
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
-    .my_container{
-        width: 50px;
-    }
     .my_card {
         width: calc(100% / 5 - 1.5rem);
         cursor: pointer;
