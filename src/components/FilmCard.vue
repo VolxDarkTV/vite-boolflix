@@ -24,16 +24,19 @@ import {store} from '../store';
     @mouseleave="inactive='d-none'" 
     class="my_card card flex-column align-items-center justify-content-center bg-dark"
     >
-        <img 
-        v-if="inactive === 'd-none'" 
-        class="card" 
-        :src="store.imgURL+item.poster_path" 
-        :alt="item.original_title">
+        <!-- Cover Image -->
+        <div v-if="inactive === 'd-none'">
+            <img 
+            class="card" 
+            :src="store.imgURL+item.poster_path" 
+            :alt="item.original_title">
+        </div>
 
         <!-- INFO -->
         <div 
         v-else-if="inactive === 'd-flex'" 
          class="my_over_info d-flex flex-column align-items-center text-light gap-1 p-3">
+
             <!-- Serie/Film -->
             <div class="text-warning">
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
@@ -59,10 +62,12 @@ import {store} from '../store';
                 <StarRating :star-size="20" v-if="item.vote_average !== undefined" :rating="((item.vote_average.toFixed()) / 10) * 5"/>
                 <StarRating :star-size="20" v-else-if="item.vote_average === undefined"/>
             </div>
+            
             <span>
                 <span class="fw-bold">Overview:</span>
                 {{item.overview}}
             </span>
+
         </div>
 
     </div>
