@@ -35,7 +35,7 @@ import {store} from '../store';
         <!-- INFO -->
         <div 
         v-else-if="inactive === 'd-flex'" 
-         class="my_over_info d-flex flex-column align-items-center text-light gap-1 p-3">
+         class="my_over_info position-absolute d-flex flex-column align-items-center text-light gap-1 p-3">
 
             <!-- Serie/Film -->
             <div class="text-warning">
@@ -77,12 +77,12 @@ import {store} from '../store';
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
     .my_card {
-        width: calc(100% / 5 - 1.5rem);
+        width: calc(100% / 10 - 1.5rem);
         cursor: pointer;
     }
     .my_over_info{
         overflow-y: auto;
-        max-height: 400px;
+        height: 100%;
     }
     
 </style>
