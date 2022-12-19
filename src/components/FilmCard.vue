@@ -90,5 +90,7 @@ import {store} from '../store';
         display: flex;
         background-color: #151414;
         border: solid #ffac07 1px;
+        // When have no Cover Image
+        width: 100%;
     }
 </style>
