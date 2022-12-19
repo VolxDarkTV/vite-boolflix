@@ -6,7 +6,7 @@ import {store} from '../store';
         data(){
             return{
                 store,
-                inactive: 'd-none',
+                // inactive: 'd-none',
             }
         },
         components:{
@@ -20,12 +20,10 @@ import {store} from '../store';
 <template>
     <!-- Card container -->
     <div 
-    @mouseover="inactive='d-flex'" 
-    @mouseleave="inactive='d-none'" 
     class="my_card card flex-column align-items-center justify-content-center bg-dark"
     >
         <!-- Cover Image -->
-        <div v-if="inactive === 'd-none'">
+        <div>
             <img v-if="item.poster_path !== undefined" 
             class="card" 
             :src="store.imgURL+item.poster_path" 
@@ -36,8 +34,7 @@ import {store} from '../store';
 
         <!-- INFO -->
         <div 
-        v-else-if="inactive === 'd-flex'" 
-         class="my_over_info position-absolute d-flex flex-column align-items-center text-light gap-1 p-4">
+         class="my_over_info card position-absolute flex-column align-items-center text-light gap-1 p-4">
 
             <!-- Serie/Film -->
             <div class="text-warning">
@@ -83,11 +80,15 @@ import {store} from '../store';
     .my_card {
         width: calc(100% / 4 - 1.5rem);
         cursor: pointer;
-        min-height: 100px;
     }
     .my_over_info{
+        display: none;
         overflow-y: auto;
         height: 100%;
     }
-    
+    .my_card:hover .my_over_info{
+        display: flex;
+        background-color: #151414;
+        border: solid #ffac07 1px;
+    }
 </style>
