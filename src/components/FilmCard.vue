@@ -42,7 +42,7 @@ import {store} from '../store';
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
                 <span v-else-if="item.media_type === 'movie'">Film</span>
             </div>
-            <span>
+            <span v-if="item.title !== item.original_title || item.name !== item.original_name">
                 <span class="fw-bold">Titolo:</span> 
                 {{item.title || item.name}}
             </span>
@@ -77,7 +77,7 @@ import {store} from '../store';
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
     .my_card {
-        width: calc(100% / 10 - 1.5rem);
+        width: calc(100% / 4 - 1.5rem);
         cursor: pointer;
     }
     .my_over_info{
