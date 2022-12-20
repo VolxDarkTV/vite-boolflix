@@ -1,10 +1,12 @@
 <script>
 import {store} from './store';
 import axios from 'axios';
+import AppSearch from './components/AppSearch.vue';
 import FilmList from './components/FilmList.vue';
 import 'animate.css';
   export default{
     components:{
+      AppSearch,
       FilmList,
     },
     data(){
@@ -42,9 +44,9 @@ import 'animate.css';
 </script>
 
 <template>
-  
+  <AppSearch @search="getFilms()"/>
   <!-- Ho rimosso getSeries in quanto ho introdotto un nuovo link per cercare entrambe le cose (film & serie) -->
-  <FilmList @search="getFilms()"/>
+  <FilmList/>
 </template>
 
 <style lang="scss">
