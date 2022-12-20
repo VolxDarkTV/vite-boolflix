@@ -58,10 +58,29 @@ import {store} from '../store';
             <!-- Flags -->
            <FlagLanguage :item="item"/>
             
+           <!-- StarRating -->
             <div class="my_stars">
                 <!-- Poichè in alcuni casi nopn esiste il vote_average, ho impostato questa condizione per evitare errori a causa del mancato valore di vote_average -->
-                <StarRating :star-size="20" v-if="item.vote_average !== undefined" :rating="((item.vote_average.toFixed()) / 10) * 5"/>
-                <StarRating :star-size="20" v-else-if="item.vote_average === undefined"/>
+                <StarRating 
+                v-if="item.vote_average !== undefined" 
+                :star-size="20" 
+                :rounded-corners="true" 
+                :border-width="1" 
+                :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]"
+                inactive-color="#fff" 
+                active-color="#ffac07" 
+                :rating="((item.vote_average.toFixed()) / 10) * 5"
+                />
+                <!-- Undefined StarRating -->
+                <StarRating 
+                v-else-if="item.vote_average === undefined"
+                :star-size="20" 
+                :rounded-corners="true" 
+                :border-width="1" 
+                :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]"
+                inactive-color="#fff" 
+                active-color="#ffac07"
+                />
             </div>
             
             <!-- Overview -->
