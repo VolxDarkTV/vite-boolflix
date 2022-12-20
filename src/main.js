@@ -10,8 +10,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
+
 /* add icons to the library */
-library.add(faMagnifyingGlass)
+library.add(faMagnifyingGlass, faCircleXmark)
 
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)

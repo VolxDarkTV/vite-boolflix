@@ -31,12 +31,23 @@ export default{
 
                 <div class="d-flex align-items-center gap-2">
                     
-                    <input id="search" type="text" placeholder="Search Films Series and more then" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')" v-on:keypress="$emit('search')" :class="inactive">
+                    <input 
+                    id="search" 
+                    type="text" 
+                    placeholder="Search Films Series and more then" 
+                    v-model="store.searchFilm" v-on:keyup.enter="$emit('search')" v-on:keypress="$emit('search')" 
+                    :class="inactive">
                     
-                    <label for="search" @click="inactive= 'd-block'">
+                    <!-- Search Glass -->
+                    <label for="search" @click="inactive = 'd-block'" v-if="inactive !== 'd-block'">
+
                         <font-awesome-icon class="my_search_icon fs-3" icon="fa-solid fa-magnifying-glass" />
+
                     </label>
-                        
+                    
+                    <!-- Close search -->
+                    <font-awesome-icon v-else @click="inactive = 'd-none'" class="my_search_icon_two fs-3" icon="fa-regular fa-circle-xmark"/>
+
                     <!-- <button class="btn btn-warning" @click.prevent="$emit('search')">
                         search
                     </button> -->
@@ -55,5 +66,10 @@ export default{
     .my_search_icon{
         color: #fff;
         cursor: pointer;
+    }
+    .my_search_icon_two{
+        color: #fff;
+        cursor: pointer;
+
     }
 </style>
