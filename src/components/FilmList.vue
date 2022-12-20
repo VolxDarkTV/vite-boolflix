@@ -20,7 +20,7 @@ export default{
         <!-- Search bar container -->
         <div>
             <!-- Search Bar -->
-            <div class="fixed-top d-flex justify-content-between align-items-center gap-5 container bg-dark mb-3 p-2 rounded">
+            <div class="fixed-top d-flex justify-content-between align-items-center gap-5 container bg-dark p-2 rounded">
 
                 <div class="d-flex align-items-center gap-2">
                     <div class="my_logo rounded">
@@ -34,10 +34,10 @@ export default{
 
                 <div class="d-flex align-items-center gap-2">
                     
-                    <input id="search" type="text" placeholder="Search Films Series and more then" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')" :class="inactive">
+                    <input id="search" type="text" placeholder="Search Films Series and more then" v-model="store.searchFilm" v-on:keyup.enter="$emit('search')" v-on:keypress="$emit('search')" :class="inactive">
                     
                     <label for="search" @click="inactive= 'd-block'">
-                        <font-awesome-icon class="my_search_icon" icon="fa-solid fa-magnifying-glass" />
+                        <font-awesome-icon class="my_search_icon fs-3" icon="fa-solid fa-magnifying-glass" />
                     </label>
                         
                     <!-- <button class="btn btn-warning" @click.prevent="$emit('search')">
@@ -56,7 +56,7 @@ export default{
         </section>
 
         <!-- Card container -->
-        <section class="mt-5 container container-md" v-else>
+        <section class="my_card_container container container-md" v-else>
             <div class="row">
                 <div class="d-flex flex-wrap justify-content-center gap-3 col">
                     <!-- Card Component -->
@@ -74,5 +74,8 @@ export default{
     .my_search_icon{
         color: #fff;
         cursor: pointer;
+    }
+    .my_card_container{
+        margin-top: 80px;
     }
 </style>
