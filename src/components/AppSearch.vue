@@ -47,7 +47,7 @@ export default{
                     </label>
                     
                     <!-- Close search -->
-                    <label for="search" v-else  @click="store.searchFilm = ''">
+                    <label for="search" v-else  @click="store.searchFilm = '', inactive = 'd-none'">
 
                         <font-awesome-icon class="my_search_icon_two fs-3" icon="fa-regular fa-circle-xmark"/>
 
