@@ -33,19 +33,20 @@ import {store} from '../store';
         </div>
 
         <!-- INFO -->
-        <div 
-         class="my_over_info card position-absolute flex-column align-items-center text-light gap-1 p-4">
+        <div class="my_over_info card position-absolute flex-column align-items-center text-light gap-1 p-4">
 
             <!-- Serie/Film -->
             <div class="text-warning">
                 <span v-if="item.media_type === 'tv'">Serie TV</span>
                 <span v-else-if="item.media_type === 'movie'">Film</span>
             </div>
+
             <!-- Title -->
             <span>
                 <span class="fw-bold">Titolo:</span> 
                 {{item.title || item.name}}
             </span>
+
             <!-- Original Title -->
             <span v-if="item.title !== item.original_title || item.name !== item.original_name & item.original_title !== undefined & item.original_name !== undefined">
                 <span class="fw-bold">Titolo originale:</span>
